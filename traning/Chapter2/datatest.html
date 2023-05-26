@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+    <link rel="stylesheet" href="../style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="abc">
+        <p>{{price * 5}}</p>
+        <p>{{'이름: ' + name}}</p>
+        <p>{{`이름: ${name}`}}</p>
+        <p v-text="`이름: ${name}`"></p>
+        <p v-text="`이름: ${name.substr(0, 1)}`"></p>
+        <p v-text="price * 5"></p>
+        <p v-text="arr[0] + 100"></p>
+        <p>{{arr[0] * 100}}</p>
+        <p>{{arr[0] + ' 이름'}}</p>
+        <p>{{`${arr[0]} 이름`}}</p>
+        <p>{{obj.a}}</p>
+        <p>{{`a: ${obj.a}`}}</p>
+        <p v-on:click="goMethod">{{data.length}}</p>
+        <p v-on:click="goMethod" v-text="data.length"></p>
+        {{ $data }}
+        <hr>
+        <li v-for="(value, key) in $data">{{ `${key}: ${value}` }}</li>
+        <li v-for="(value, idx) in data">{{ `${idx}: ${value}, ${name}` }}</li>
+    </div>
+    <script>
+        const data = [
+            {
+                c: 'c',
+                1: 1,
+            },
+            {
+                f: 'f',
+                2: 1,
+            }
+        ];
+        new Vue({
+            el: "#abc",
+            data: {
+                price: 500,
+                name: '김동동>',
+                arr: [
+                    1, 2, 3, 4,
+                ],
+                obj: {
+                    a: 'a',
+                    b: 'b',
+                },
+                data: data
+            },
+            methods: {
+                goMethod: function () {
+                    console.log(this.data.length);
+                }
+            },
+        });
+
+        data[2] = {
+            gogo: 'gogo'
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+    <link rel="stylesheet" href="../style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="abc">
+        <p>{{hello}}</p>
+        <p v-text="bye"></p>
+        <p v-html="html"></p>
+        <div v-html="area"></div>
+    </div>
+    <script>
+        new Vue({
+            el: "#abc",
+            data: {
+                hello: '<a href="#go">link</a>',
+                bye: '<a href="#go">link</a>',
+                html: '<a href="#go">link</a>',
+                area: `        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <div id="go">text</div>`
+            },
+        });
+    </script>
+</body>
+</html>
